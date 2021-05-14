@@ -31,9 +31,9 @@ GioiTinh varchar(3),
 NgaySinh datetime,
 SoDienThoai varchar(15) constraint DocGia_SoDienThoai_NotNULL not null,
 Email varchar(50) constraint DocGia_Email_NotNULL not null,
-DiaChi varchar(50),
-HinhAnh Image
+DiaChi varchar(50)
 )
+
 Go
 Create Table DangKy(
 MaSach varchar(10),
@@ -270,7 +270,7 @@ END
 Go
 
 --Function tra ve so tien phai den
-ALTER FUNCTION Func_tinh_tien_den (@MA_CUON VARCHAR(20), @Ngay_Het_Han DATETIME, @NGAY_TRA DATETIME , @TINH_TRANG VARCHAR(50))
+CREATE FUNCTION Func_tinh_tien_den (@MA_CUON VARCHAR(20), @Ngay_Het_Han DATETIME, @NGAY_TRA DATETIME , @TINH_TRANG VARCHAR(50))
 RETURNS INT
 AS 
 BEGIN
@@ -583,26 +583,28 @@ insert into CuonSach (MaCuon, TienDenBu, ThoiGianMuon, MaKhuVuc, MaSach, TenNXB)
 insert into CuonSach (MaCuon, TienDenBu, ThoiGianMuon, MaKhuVuc, MaSach, TenNXB) values ('TKTG02', 50000, 30, 'A3', 'TG', 'Tuoi Tre');
 --------------VINH------------------
 --DOC GIA----------OK--------
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG001', 'Nguyen Van A', 'Nam', '01-01-1975', '0376621299','19110029@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG002', 'Nguyen Van B', 'Nam', '01-01-1976', '0376621298','19110030@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG003', 'Nguyen Thi C', 'Nu', '01-01-1977', '0376621297','19110031@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG004', 'Nguyen Van D', 'Nam', '01-01-1978', '0376621296','19110032@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG005', 'Nguyen Van E', 'Nam', '04-15-2002', '0376621295','19110033@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG006', 'Tran Van Mot', 'Nam', '07-18-2003', '0376621294','19110034@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG007', 'Tran Thi Hai', 'Nu', '07-29-2001', '0376621293','19110035@student.hcmute.edu.vn','01 Vo Van Ngan',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG008', 'Tran Thi Ba', 'Nu', '04-15-2003', '0376621292','19110036@student.hcmute.edu.vn','10 Nguyen Trai',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG009', 'Tran Van Tu', 'Nam', '02-28-2003', '0376621291','19110037@student.hcmute.edu.vn','321 Nguyen Binh Khiem',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG010', 'Tran Van Nam', 'Nam', '01-24-2005', '0376621290','19110038@student.hcmute.edu.vn','20 Hang Ngang',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG011', 'Nguyen Tran Thi Van', 'Nam', '05-15-2004', '0376621289','19110039@student.hcmute.edu.vn','03 Khu pho 2',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG012', 'Nguyen Tran Thi Toan', 'Nu', '07-10-1997', '0376621288','19110040@student.hcmute.edu.vn','191 Khu pho 2',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG013', 'Nguyen Tran Thi Hoa', 'Nu', '04-16-2001', '0376621287','19110041@student.hcmute.edu.vn','333 Hang Bia',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG014', 'Nguyen Tran Thi Ly', 'Nu', '04-15-2001', '0376621286','19110042@student.hcmute.edu.vn','334 Hang Bia',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG015', 'Nguyen Tran Thi Sinh', 'Nam', '02-25-1989', '0376621285','19110043@student.hcmute.edu.vn','04 Hai Ba Trung',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG016', 'Le Van Cuong', 'Nam', '12-31-1999', '0376621284','19110044@student.hcmute.edu.vn','06 Hai Ba Trung',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG017', 'Le Van Kien', 'Nam', '04-14-2000', '0376621283','19110045@student.hcmute.edu.vn','10 Hai Ba Trung',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG018', 'Le Hoai Nam', 'Nam', '02-15-2000', '0376621282','19110046@student.hcmute.edu.vn','10 Hai Ba Trung',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG019', 'Le Hoang Tuan', 'Nam', '03-14-1998', '0376621281','19110047@student.hcmute.edu.vn','484 Le Van Viet',NULL)
-INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi, HinhAnh) values('DG020', 'Le Ngoc Bich', 'Nu', '01-10-1999', '0376621280','19110048@student.hcmute.edu.vn','484 Le Van Viet',NULL)
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG001', 'Nguyen Van A', 'Nam', '01-01-1975', '0376621299','19110029@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG002', 'Nguyen Van B', 'Nam', '01-01-1976', '0376621298','19110030@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG003', 'Nguyen Thi C', 'Nu', '01-01-1977', '0376621297','19110031@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG004', 'Nguyen Van D', 'Nam', '01-01-1978', '0376621296','19110032@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG005', 'Nguyen Van E', 'Nam', '04-15-2002', '0376621295','19110033@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG006', 'Tran Van Mot', 'Nam', '07-18-2003', '0376621294','19110034@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG007', 'Tran Thi Hai', 'Nu', '07-29-2001', '0376621293','19110035@student.hcmute.edu.vn','01 Vo Van Ngan')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG008', 'Tran Thi Ba', 'Nu', '04-15-2003', '0376621292','19110036@student.hcmute.edu.vn','10 Nguyen Trai')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG009', 'Tran Van Tu', 'Nam', '02-28-2003', '0376621291','19110037@student.hcmute.edu.vn','321 Nguyen Binh Khiem')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG010', 'Tran Van Nam', 'Nam', '01-24-2005', '0376621290','19110038@student.hcmute.edu.vn','20 Hang Ngang')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG011', 'Nguyen Tran Thi Van', 'Nam', '05-15-2004', '0376621289','19110039@student.hcmute.edu.vn','03 Khu pho 2')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG012', 'Nguyen Tran Thi Toan', 'Nu', '07-10-1997', '0376621288','19110040@student.hcmute.edu.vn','191 Khu pho 2')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG013', 'Nguyen Tran Thi Hoa', 'Nu', '04-16-2001', '0376621287','19110041@student.hcmute.edu.vn','333 Hang Bia')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG014', 'Nguyen Tran Thi Ly', 'Nu', '04-15-2001', '0376621286','19110042@student.hcmute.edu.vn','334 Hang Bia')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG015', 'Nguyen Tran Thi Sinh', 'Nam', '02-25-1989', '0376621285','19110043@student.hcmute.edu.vn','04 Hai Ba Trung')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG016', 'Le Van Cuong', 'Nam', '12-31-1999', '0376621284','19110044@student.hcmute.edu.vn','06 Hai Ba Trung')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG017', 'Le Van Kien', 'Nam', '04-14-2000', '0376621283','19110045@student.hcmute.edu.vn','10 Hai Ba Trung')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG018', 'Le Hoai Nam', 'Nam', '02-15-2000', '0376621282','19110046@student.hcmute.edu.vn','10 Hai Ba Trung')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG019', 'Le Hoang Tuan', 'Nam', '03-14-1998', '0376621281','19110047@student.hcmute.edu.vn','484 Le Van Viet')
+INSERT INTO DocGia(MaDocGia, HoVaTen, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi) values('DG020', 'Le Ngoc Bich', 'Nu', '01-10-1999', '0376621280','19110048@student.hcmute.edu.vn','484 Le Van Viet')
+
+
 --DANG KY----------OK---------
 INSERT INTO DangKy(MaSach, TenNXB, MaDocGia, NgayDangKy, GhiChu) values('VHVN', 'Kim Dong', 'DG001', '01-01-2021', 'Khong')
 INSERT INTO DangKy(MaSach, TenNXB, MaDocGia, NgayDangKy, GhiChu) values('THVN', 'Giao Duc', 'DG002', '10-01-2021', 'Khong')
@@ -726,7 +728,7 @@ END
 -----------------------
 -- MẤT SÁCH THÌ SẼ XÓA ĐI MÃ CUỐN ĐÓ BÊN BẢNG MƯỢN VÀ CUỐN SÁCH
 
-ALTER TRIGGER TRIGG_MAT_SACH --------------THANH CONG 50%-----------------
+CREATE TRIGGER TRIGG_MAT_SACH --------------THANH CONG 50%-----------------
 ON QUATRINHMUON
 AFTER UPDATE
 AS 
@@ -788,7 +790,7 @@ END
 exec PROC_DANH_SACH_DA_TRA
 
 --so luong sach da muon theo ma sach
-alter PROCEDURE PROC_SO_SACH_DA_MUON
+CREATE PROCEDURE PROC_SO_SACH_DA_MUON
 AS 
 BEGIN
 	SELECT CuonSacH.MaSach,DauSach.TENSACH, COUNT(MUON.MaCuon) AS SO_LUON_SACH_DA_MUON
@@ -1089,14 +1091,13 @@ Create Procedure Proc_Them_DocGia
 @NgaySinh datetime,
 @SoDienThoai varchar(15),
 @Email varchar(50),
-@DiaChi varchar(50),
-@HinhAnh Image
+@DiaChi varchar(50)
 AS
 Begin
-	Insert into DocGia values(@MaDocGia, @HoVaTen,@GioiTinh,@NgaySinh ,@SoDienThoai,@Email ,@DiaChi ,@HinhAnh);
+	Insert into DocGia values(@MaDocGia, @HoVaTen,@GioiTinh,@NgaySinh ,@SoDienThoai,@Email ,@DiaChi);
 End
 Go
-exec dbo.Proc_Them_DocGia'1','a','nam',null,'0123','assss','assss',null;
+exec dbo.Proc_Them_DocGia'1','a','nam',null,'0123','assss','assss';
 Create Procedure Proc_Sua_DocGia
 @MaDocGia varchar(10),
 @HoVaTen varchar(50),
@@ -1104,16 +1105,15 @@ Create Procedure Proc_Sua_DocGia
 @NgaySinh datetime,
 @SoDienThoai varchar(15),
 @Email varchar(50),
-@DiaChi varchar(50),
-@HinhAnh Image
+@DiaChi varchar(50)
 AS
 Begin
 	 Update DocGia 
-	 Set HoVaTen= @HoVaTen,GioiTinh =@GioiTinh,NgaySinh= @NgaySinh ,SoDienThoai= @SoDienThoai, Email= @Email ,DiaChi= @DiaChi ,HinhAnh= @HinhAnh
+	 Set HoVaTen= @HoVaTen,GioiTinh =@GioiTinh,NgaySinh= @NgaySinh ,SoDienThoai= @SoDienThoai, Email= @Email ,DiaChi= @DiaChi
 	 Where MaDocGia = @MaDocGia
 End
 Go
-exec dbo.Proc_Sua_DocGia '1','ab','nam',null,'0123','assss','assss',null;
+exec dbo.Proc_Sua_DocGia '1','ab','nam',null,'0123','assss','assss';
 create Procedure Proc_Xoa_DocGia
 @MaDocGia varchar(10)
 AS
@@ -1147,7 +1147,7 @@ Begin
 
 End
 Go
-exec dbo.Proc_Sua_DauSach 'p','p','a',2,'a',131654;
+exec dbo.Proc_Sua_DauSach 'p','p','p','a',2,'a',131654;
 create Procedure Proc_Them_DauSach
 @MaSach varchar(10),
 @TenSach varchar(20),
@@ -1162,7 +1162,7 @@ Begin
 End
 Go
 
-exec dbo.Proc_Them_DauSach 'p','p','a',5,'a',131654;
+exec dbo.Proc_Them_DauSach 'p','p','p','a',5,'a',131654;
 --Dang lam
 Create Procedure Proc_Xoa_DauSach
 @MaSach varchar(10),
@@ -1332,10 +1332,12 @@ GO
 --CAP QUYEN CAC STORE PROCEDURE CHO QUAN LY
 GRANT EXEC, ALTER ON Proc_Cho_Muon_sach TO QuanLy
 GRANT EXEC, ALTER ON Proc_tra_sach TO QuanLy
-GRANT EXEC, ALTER ON Proc_Xoa_DangKy TO QuanLy
 GRANT EXEC, ALTER ON PROC_DANH_SACH_QUA_HAN TO QuanLy
 GRANT EXEC, ALTER ON PROC_DANH_SACH_TOI_HAN_TRA TO QuanLy
 GRANT EXEC, ALTER ON PROC_DANH_SACH_DA_MUON TO QuanLy
+GRANT EXEC, ALTER ON PROC_DANH_SACH_DA_TRA TO QuanLy
+GRANT EXEC, ALTER ON PROC_SO_SACH_DA_MUON TO QuanLy
+GRANT EXEC, ALTER ON PROC_SO_SACH_MUON TO QuanLy
 GRANT EXEC, ALTER ON PROC_THU_THU_TRUC TO QuanLy
 --
 GRANT EXEC, ALTER ON Proc_Them_ThuThu TO QuanLy
@@ -1356,6 +1358,7 @@ GRANT EXEC, ALTER ON Proc_Sua_DocGia TO QuanLy
 GRANT EXEC, ALTER ON Proc_Xoa_DocGia TO QuanLy
 GRANT EXEC, ALTER ON Proc_Them_DauSach TO QuanLy
 GRANT EXEC, ALTER ON Proc_Xoa_DauSach TO QuanLy
+GRANT EXEC, ALTER ON Proc_Sua_DauSach TO QuanLy
 GRANT EXEC, ALTER ON Proc_Sua_CuonSach TO QuanLy
 GRANT EXEC, ALTER ON Proc_Them_CuonSach TO QuanLy
 GRANT EXEC, ALTER ON Proc_Xoa_CuonSach TO QuanLy
@@ -1373,3 +1376,47 @@ GRANT SELECT, ALTER ON Func_Check_DauSach TO QuanLy
 GRANT SELECT, ALTER ON Func_Check_KhuVuc TO QuanLy
 GRANT SELECT, ALTER ON Func_Check_NXB TO QuanLy
 
+
+--Tao quyen cho Thuthu
+CREATE ROLE Nhanvien
+GRANT SELECT, INSERT, DELETE, UPDATE ON DangKy TO Nhanvien
+GO
+GRANT SELECT, INSERT, DELETE, UPDATE ON DocGia TO Nhanvien
+GO
+GRANT SELECT, INSERT, DELETE, UPDATE ON Muon TO Nhanvien
+GO
+GRANT SELECT, INSERT, DELETE, UPDATE ON QuaTrinhMuon TO Nhanvien
+GO
+--CAP QUYEN CAC STORE PROCEDURE CHO THU THU
+GRANT EXEC, ALTER ON Proc_Cho_Muon_sach TO Nhanvien
+GRANT EXEC, ALTER ON Proc_tra_sach TO Nhanvien
+
+GRANT EXEC, ALTER ON PROC_DANH_SACH_QUA_HAN TO Nhanvien
+GRANT EXEC, ALTER ON PROC_DANH_SACH_TOI_HAN_TRA TO Nhanvien
+GRANT EXEC, ALTER ON PROC_DANH_SACH_DA_MUON TO Nhanvien
+GRANT EXEC, ALTER ON PROC_DANH_SACH_DA_TRA TO Nhanvien
+GRANT EXEC, ALTER ON PROC_SO_SACH_DA_MUON TO Nhanvien
+GRANT EXEC, ALTER ON PROC_SO_SACH_MUON TO Nhanvien
+--
+GRANT EXEC, ALTER ON Proc_Them_DangKy TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Sua_DangKy TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Xoa_DangKy TO Nhanvien
+
+GRANT EXEC, ALTER ON Proc_Them_Muon TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Sua_Muon TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Xoa_Muon TO Nhanvien
+--
+GRANT EXEC, ALTER ON Proc_Them_DocGia TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Sua_DocGia TO Nhanvien
+GRANT EXEC, ALTER ON Proc_Xoa_DocGia TO Nhanvien
+
+--CAP QUYEN CAC FUNCTION CHO THU THU
+GRANT SELECT, ALTER ON Func_tinh_tien_den TO Nhanvien	
+GRANT SELECT, ALTER ON Func_DangKy_BangSTTDangKy TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_KNMaDocGia TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_MaKhuVucSach TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_KNMaSachTenNXB TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_KNMaCuon TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_DauSach TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_KhuVuc TO Nhanvien
+GRANT SELECT, ALTER ON Func_Check_NXB TO Nhanvien
